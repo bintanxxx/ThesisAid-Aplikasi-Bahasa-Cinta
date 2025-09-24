@@ -43,22 +43,22 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 // Rute Admin
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard');
-});
-
-// Rute untuk menampilkan daftar gejala
-Route::get('/admin/symptoms', function() {
-    return view('admin.symptoms.index');
-});
-
-// Rute untuk menampilkan form tambah gejala
-Route::get('/admin/symptoms/create', function() {
-    return view('admin.symptoms.create');
-});
-
-// Rute untuk menampilkan form edit gejala
-Route::get('/admin/symptoms/edit', function() {
-    // Nanti kita akan tambahkan ID gejala di sini, misal: /edit/{id}
-    return view('admin.symptoms.edit');
+Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function () {
+        
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    });
+    // Rute untuk menampilkan daftar gejala
+    Route::get('/symptoms', function() {
+        return view('admin.symptoms.index');
+    });
+    // Rute untuk menampilkan form tambah gejala
+    Route::get('/symptoms/create', function() {
+        return view('admin.symptoms.create');
+    });
+    // Rute untuk menampilkan form edit gejala
+    Route::get('/symptoms/edit', function() {
+        // Nanti kita akan tambahkan ID gejala di sini, misal: /edit/{id}
+        return view('admin.symptoms.edit');
+    });
 });
