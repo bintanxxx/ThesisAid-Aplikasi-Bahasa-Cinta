@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\User\DiagnosisController;
 use App\Http\Controllers\Admin\SymptomController;
+use App\Http\Controllers\Admin\RuleController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -61,4 +63,5 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin', 'as' => 'a
     
     // Rute Gejala
     Route::resource('symptoms', SymptomController::class);
+    Route::resource('rules', RuleController::class);
 });
