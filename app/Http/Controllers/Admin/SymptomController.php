@@ -16,7 +16,7 @@ class SymptomController extends Controller
     public function index()
     {
         //
-        $symptoms = Symptom::all();
+        $symptoms = Symptom::paginate(10);
         return view('admin.symptoms.index', compact('symptoms'));
     }
 

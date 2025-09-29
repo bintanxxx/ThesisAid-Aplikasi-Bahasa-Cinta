@@ -18,7 +18,7 @@ class RuleController extends Controller
     public function index()
     {
         //
-        $rules = Rule::with(['symptom', 'love_language'])->get();
+        $rules = Rule::with(['symptom', 'love_language'])->lates()->paginate(10);
         return view('admin.rules.index', compact('rules'));
     }
 

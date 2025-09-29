@@ -5,6 +5,8 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\User\DiagnosisController;
 use App\Http\Controllers\Admin\SymptomController;
 use App\Http\Controllers\Admin\RuleController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\DashboardController;
 
 
 /*
@@ -57,11 +59,13 @@ Route::middleware(['auth'])->group(function () {
 // Rute Admin
 Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
         
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    });
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     
     // Rute Gejala
     Route::resource('symptoms', SymptomController::class);
+
+    // Rute rule
     Route::resource('rules', RuleController::class);
+
+    Route::get('users', [UserController::class, 'index'])->name('users.index');
 });

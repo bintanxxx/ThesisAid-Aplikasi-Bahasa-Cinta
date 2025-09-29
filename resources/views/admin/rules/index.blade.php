@@ -61,5 +61,9 @@
                 @endforelse
         </tbody>
     </table>
+
+    <div class="mt-4 p-4">
+        {{ $rules->links() }}
+    </div>
 </div>
 @endsection

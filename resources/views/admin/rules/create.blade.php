@@ -16,6 +16,7 @@
                     <option value="{{ $symptom->id }}">{{ $symptom->code }} - {{ $symptom->name }}</option>
                 @endforeach
             </select>
+            
         </div>
 
         {{-- Dropdown Bahasa Cinta --}}

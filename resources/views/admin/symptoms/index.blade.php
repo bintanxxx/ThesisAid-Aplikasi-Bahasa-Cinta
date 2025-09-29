@@ -47,5 +47,9 @@
             @endforelse
         </tbody>
     </table>
+    
+    <div class="mt-4 p-4">
+        {{ $symptoms->links() }}
+    </div>
 </div>
 @endsection

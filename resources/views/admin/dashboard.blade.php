@@ -11,7 +11,7 @@
             </div>
             <div>
                 <p class="mb-2 text-sm font-medium text-gray-600">Total Pengguna</p>
-                <p class="text-lg font-semibold text-gray-700">125</p>
+                <p class="text-lg font-semibold text-gray-700">{{ $userCount }}</p>
             </div>
         </div>
 
@@ -21,7 +21,7 @@
             </div>
             <div>
                 <p class="mb-2 text-sm font-medium text-gray-600">Total Gejala</p>
-                <p class="text-lg font-semibold text-gray-700">32</p>
+                <p class="text-lg font-semibold text-gray-700">{{ $symptomCount }}</p>
             </div>
         </div>
 
@@ -31,7 +31,7 @@
             </div>
             <div>
                 <p class="mb-2 text-sm font-medium text-gray-600">Total Aturan</p>
-                <p class="text-lg font-semibold text-gray-700">48</p>
+                <p class="text-lg font-semibold text-gray-700">{{ $ruleCount }}</p>
             </div>
         </div>
     </div>
