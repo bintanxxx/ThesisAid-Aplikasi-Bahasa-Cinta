@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\User\DiagnosisController;
+use App\Http\Controllers\Admin\SymptomController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,22 +53,12 @@ Route::middleware(['auth'])->group(function () {
 
 
 // Rute Admin
-Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function () {
+Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
         
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
     });
-    // Rute untuk menampilkan daftar gejala
-    Route::get('/symptoms', function() {
-        return view('admin.symptoms.index');
-    });
-    // Rute untuk menampilkan form tambah gejala
-    Route::get('/symptoms/create', function() {
-        return view('admin.symptoms.create');
-    });
-    // Rute untuk menampilkan form edit gejala
-    Route::get('/symptoms/edit', function() {
-        // Nanti kita akan tambahkan ID gejala di sini, misal: /edit/{id}
-        return view('admin.symptoms.edit');
-    });
+    
+    // Rute Gejala
+    Route::resource('symptoms', SymptomController::class);
 });

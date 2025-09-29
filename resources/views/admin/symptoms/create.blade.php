@@ -4,7 +4,7 @@
 <h3 class="text-gray-700 text-3xl font-medium mb-6">Tambah Gejala Baru</h3>
 
 <div class="bg-white p-8 rounded-lg shadow-md">
-    <form action="" method="POST">
+    <form action="{{ route('admin.symptoms.store') }}" method="POST">
         @csrf
         {{-- Input Kode Gejala --}}
         <div class="mb-4">
@@ -22,7 +22,7 @@
             <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Simpan Gejala
             </button>
-            <a href="#" class="ml-4 inline-block align-baseline font-bold text-sm text-gray-500 hover:text-gray-800">
+            <a href="{{ route('admin.symptoms.index') }}" class="ml-4 inline-block align-baseline font-bold text-sm text-gray-500 hover:text-gray-800">
                 Batal
             </a>
         </div>
